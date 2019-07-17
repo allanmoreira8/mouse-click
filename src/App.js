@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-function App() {
+export default function App() {
+  let [WindowMousePosition, setWindowMousePosition] = useState({});
+
+  function handleMouseMove(e) {
+    setWindowMousePosition({
+      x: e.pageX,
+      y: e.pageY
+    });
+  }
+
+  function handleWhereIClick() {
+    console.log('Exibir os pontos clicados')
+  }
+
+  useEffect(() => {
+    window.addEventListener("click", handleMouseMove);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        Posição X: {WindowMousePosition.x} <br />
+        Posição Y: {WindowMousePosition.y}
+      </div>
+      <div>
+        <button onClick={handleWhereIClick}>Where i click?</button>
+      </div>
     </div>
-  );
-}
+  )
 
-export default App;
+}

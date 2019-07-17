@@ -1,0 +1,6 @@
+{
+    "editor.defaultFormatter": "eg2.tslint",
+    "files.autoSave": "onFocusChange",
+    "html.format.endWithNewline": true,
+    "editor.formatOnPaste": true
+}
